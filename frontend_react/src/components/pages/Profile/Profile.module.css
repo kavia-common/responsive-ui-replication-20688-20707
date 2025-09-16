@@ -1,0 +1,174 @@
+:root {
+  --ocean-primary: #2563EB;
+  --ocean-secondary: #F59E0B;
+  --ocean-success: #F59E0B;
+  --ocean-error: #EF4444;
+  --ocean-bg: #f9fafb;
+  --ocean-surface: #ffffff;
+  --ocean-text: #111827;
+
+  --color-ffffff: #ffffff;
+  --color-252525: #252525;
+  --color-999999: #999999;
+  --color-dddddd: #dddddd;
+  --color-eeeeee: #eeeeee;
+  --color-42794a: #42794a;
+  --color-61ce70: #61ce70;
+  --color-0e8635: #0e8635;
+  --color-e97208: #e97208;
+  --color-aaaaaa: #aaaaaa;
+
+  --font-gilroy: "Gilroy", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-30: 30px;
+  --radius-40: 40px;
+
+  --shadow-0: 0 0 10px rgba(0,0,0,0.10);
+  --shadow-1: 0 0 20px rgba(0,0,0,0.12);
+  --shadow-2: 0 0 4px rgba(0,0,0,0.10);
+  --shadow-3: 0 5px 20px rgba(0,0,0,0.15);
+
+  --screen-width: 360px;
+}
+
+.pageBg {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(249,250,251,1));
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 24px 0;
+}
+
+.figmaCanvas {
+  width: var(--screen-width);
+  margin: 0 auto;
+  position: relative;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-20);
+  max-width: 100%;
+}
+
+.statusBar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 360px; height: 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 16px;
+}
+
+.sectionWrap {
+  position: absolute;
+  left: 0; top: 22px;
+  width: 360px;
+  min-height: 700px;
+}
+
+.innerCol {
+  position: absolute;
+  left: 16px; top: 24px; width: 328px;
+}
+
+.row { display: flex; flex-direction: row; }
+.col { display: flex; flex-direction: column; }
+.center { align-items: center; justify-content: center; }
+
+.iconStrokeDark { stroke: var(--color-252525); fill: none; }
+
+.iconBtn {
+  width: 14px; height: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.iconBtn:active { transform: scale(0.96); }
+
+.avatar64 { border-radius: 64px; overflow: hidden; width: 64px; height: 64px; }
+
+/* Cards and surfaces */
+.cardSurface128 {
+  background: var(--color-ffffff);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-1);
+}
+.cardSurface130 {
+  background: var(--color-ffffff);
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+}
+.cardSurface135 {
+  background: #e87474;
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+  color: #fff;
+}
+.cardOutline34 {
+  border: 1px solid var(--color-eeeeee);
+  border-radius: var(--radius-16);
+  background: var(--color-ffffff);
+}
+
+/* Chips and chevrons */
+.chipOutline {
+  border: 1px solid var(--color-42794a);
+  border-radius: 40px;
+  box-shadow: var(--shadow-1);
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  background: transparent;
+  color: var(--color-42794a);
+  gap: 8px;
+  font: 500 12px/14px var(--font-gilroy);
+  transition: background-color 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+.chipOutline:hover { background: rgba(66,121,74,0.05); }
+.chevRight {
+  width: 6px; height: 12px; border-right: 2px solid var(--color-aaaaaa); border-top: 2px solid var(--color-aaaaaa);
+  transform: rotate(45deg);
+}
+
+/* Typography tokens */
+.typo61 { font: 500 12px/14.124px var(--font-gilroy); text-align: center; color: var(--color-252525); letter-spacing: 0; }
+.typo62 { font: 500 12px/14.124px var(--font-gilroy); color: var(--color-999999); }
+.typo65 { font: 500 12px/14.124px var(--font-gilroy); color: var(--color-ffffff); }
+.typo66 { font: 500 12px/14.124px var(--font-gilroy); color: #94ca9c; }
+.typo72 { font: 500 12px/14.124px var(--font-gilroy); color: var(--color-42794a); }
+.typo75 { font: 500 14px/16.478px var(--font-gilroy); color: var(--color-999999); }
+.typo76 { font: 700 14px/16px var(--font-gilroy); color: var(--color-252525); }
+.typo77 { font: 600 14px/16px var(--font-gilroy); color: var(--color-252525); }
+.typo52 { font: 600 14px/16px var(--font-gilroy); color: var(--color-252525); }
+.typo78 { font: 600 10px/12px var(--font-gilroy); color: var(--color-252525); }
+.typo79 { font: 600 14px/16px var(--font-gilroy); color: var(--color-42794a); }
+.typo80 { font: 700 14px/16px var(--font-gilroy); color: #ffffff; }
+
+/* Responsive and helpers */
+.cardsRowScroll { gap: 12px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; }
+.cardsRowScroll > * { scroll-snap-align: start; }
+
+.receivingMoney { gap: 12px; }
+.receivingMoneyCta {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.receivingMoneyManageBtn { min-width: 96px; justify-content: center; padding-left: 14px; padding-right: 14px; }
+
+.bottomNav {
+  position: absolute; left: 0; bottom: 0; width: 360px; height: 80px;
+  background: var(--color-42794a);
+  display: flex; justify-content: space-around; align-items: center; color: #fff;
+}
+
+@media (max-width: 400px) {
+  .figmaCanvas { width: 100vw; border-radius: 0; }
+  .statusBar { width: 100vw !important; }
+  .bottomNav { width: 100vw !important; }
+  .receivingMoneyCta { justify-content: flex-start; }
+  .receivingMoneyManageBtn { min-width: auto; }
+}

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import MyCards from './components/pages/MyCards';
+import Profile from './components/pages/Profile';
 
 // PUBLIC_INTERFACE
 function App() {
   /**
    * Root App component enhanced with a lightweight router-less view switcher
-   * to access the new MyCards screen without adding external dependencies.
+   * to access the MyCards and Profile screens without adding external dependencies.
    */
   const [theme, setTheme] = useState('light');
-  const [route, setRoute] = useState('home'); // 'home' | 'mycards'
+  const [route, setRoute] = useState('home'); // 'home' | 'mycards' | 'profile'
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -22,19 +23,19 @@ function App() {
 
   const goHome = () => setRoute('home');
   const goMyCards = () => setRoute('mycards');
+  const goProfile = () => setRoute('profile');
 
-  if (route === 'mycards') {
-    return (
-      <div className="App">
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-          style={{ position: 'fixed', zIndex: 20 }}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <MyCards />
+  const GlobalControls = ({ showBack = true }) => (
+    <>
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        style={{ position: 'fixed', zIndex: 20 }}
+      >
+        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+      </button>
+      {showBack && (
         <div style={{ position: 'fixed', left: 16, bottom: 16, zIndex: 20 }}>
           <button
             onClick={goHome}
@@ -51,6 +52,24 @@ function App() {
             ← Back
           </button>
         </div>
+      )}
+    </>
+  );
+
+  if (route === 'mycards') {
+    return (
+      <div className="App">
+        <GlobalControls />
+        <MyCards />
+      </div>
+    );
+  }
+
+  if (route === 'profile') {
+    return (
+      <div className="App">
+        <GlobalControls />
+        <Profile />
       </div>
     );
   }
@@ -69,23 +88,40 @@ function App() {
         <h1 style={{ marginBottom: 0 }}>React KAVIA Template</h1>
         <p style={{ marginTop: 8 }}>Current theme: <strong>{theme}</strong></p>
         <p style={{ maxWidth: 520 }}>
-          This template now includes the "My cards" screen converted from static HTML/CSS into a modular React page.
+          This template includes the "My cards" and "Profile" screens converted from static HTML/CSS into modular React pages.
         </p>
-        <button
-          onClick={goMyCards}
-          style={{
-            background: '#2563EB',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 8,
-            padding: '10px 16px',
-            fontWeight: 600,
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(37,99,235,0.25)'
-          }}
-        >
-          Open “My cards” screen
-        </button>
+        <div style={{ display: 'flex', gap: 12 }}>
+          <button
+            onClick={goMyCards}
+            style={{
+              background: '#2563EB',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 8,
+              padding: '10px 16px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(37,99,235,0.25)'
+            }}
+          >
+            Open “My cards” screen
+          </button>
+          <button
+            onClick={goProfile}
+            style={{
+              background: '#42794a',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 8,
+              padding: '10px 16px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(66,121,74,0.25)'
+            }}
+          >
+            Open “Profile” screen
+          </button>
+        </div>
       </header>
     </div>
   );
