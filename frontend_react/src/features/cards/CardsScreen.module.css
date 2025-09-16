@@ -1,0 +1,193 @@
+:root {
+  --ocean-primary: #2563EB;
+  --ocean-secondary: #F59E0B;
+  --ocean-success: #F59E0B;
+  --ocean-error: #EF4444;
+  --ocean-bg: #f9fafb;
+  --ocean-surface: #ffffff;
+  --ocean-text: #111827;
+  --color-ffffff: #ffffff;
+  --color-252525: #252525;
+  --color-999999: #999999;
+  --color-dddddd: #dddddd;
+  --color-eeeeee: #eeeeee;
+  --color-42794a: #42794a;
+  --color-61ce70: #61ce70;
+  --color-0e8635: #0e8635;
+  --color-e97208: #e97208;
+  --color-aaaaaa: #aaaaaa;
+  --font-gilroy: "Gilroy", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-30: 30px;
+  --radius-40: 40px;
+  --shadow-0: 0 0 10px rgba(0,0,0,0.10);
+  --shadow-1: 0 0 20px rgba(0,0,0,0.12);
+  --shadow-3: 0 5px 20px rgba(0,0,0,0.15);
+  --screen-width: 360px;
+}
+.pageBg {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(249,250,251,1));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 0;
+}
+.figmaCanvas {
+  width: var(--screen-width);
+  margin: 0 auto;
+  position: relative;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-20);
+  max-width: 100%;
+}
+.statusBar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 360px; height: 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 16px;
+}
+.time { font: 500 12px/14.124px var(--font-gilroy); text-align: center; color: var(--color-252525); }
+.statusIcons { display: flex; gap: 12px; margin-left: auto; }
+.headerArea {
+  position: absolute; left: 0; top: 22px;
+  width: 360px; height: 700px;
+}
+.backBtn {
+  position: absolute; left: 16px; top: 16px;
+  width: 40px; height: 40px;
+  border: 1px solid var(--color-dddddd);
+  border-radius: 40px;
+  background: var(--color-ffffff);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: none; padding: 0;
+}
+.title {
+  position: absolute; left: 156px; top: 16px; width: 47px; height: 24px;
+}
+.tabBar {
+  position: absolute;
+  left: 0; top: 94px;
+  width: 360px; height: 38px;
+  display: flex; align-items: center;
+  border-top: 1px solid var(--color-eeeeee);
+  border-bottom: 1px solid var(--color-eeeeee);
+}
+.tab, .tabInactive {
+  width: 180px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.tabActive {
+  width: 180px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: none;
+  border: 1px solid var(--color-42794a);
+  outline: none;
+  cursor: pointer;
+}
+.addCardBtn {
+  position: absolute; left: 16px; top: 664px; width: 328px; height: 38px;
+  background: var(--color-42794a);
+  border-radius: 30px;
+  color: #fff; border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 12px;
+  box-shadow: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+.addCardBtn:hover { opacity: 0.96; box-shadow: var(--shadow-3); }
+.addCardBtn:active { transform: scale(0.98); }
+
+.contentStack {
+  position: absolute; left: 16px; top: 132px; width: 328px;
+}
+.cardHero {
+  position: relative;
+  width: 328px; height: 206px;
+  border-radius: 16px;
+  background: #42794a;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  margin-top: 8px;
+}
+.cardHeroBg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 1;
+}
+.cardHeroOverlay {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 112px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(66,121,74,0.15) 25%, rgba(66,121,74,0.4) 50%, rgba(66,121,74,0.75) 100%);
+  pointer-events: none;
+}
+.cardHeroChip {
+  position: absolute; left: 64px; top: 80px; width: 40px; height: 28px; object-fit: contain;
+}
+.cardHeroNumber {
+  position: absolute; left: 40px; bottom: 32px;
+}
+.cardHeroMeta {
+  position: absolute; left: 40px; top: 24px; right: 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cardHeroWifi { position: absolute; left: 24px; top: 18px; }
+.cardHeroBrand { position: absolute; right: 24px; top: 18px; }
+
+.detailsBlock {
+  width: 328px;
+  border: 1px solid var(--color-eeeeee);
+  border-radius: 16px;
+  background: #fff;
+  margin-top: 12px;
+  padding: 8px 16px;
+}
+.detailsRow {
+  height: 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.divider { height: 0; border-top: 1px solid var(--color-eeeeee); margin: 8px 0; }
+
+.bottomNav {
+  position: absolute; left: 0; bottom: 0; width: 360px; height: 80px;
+  background: var(--color-42794a);
+  display: flex; justify-content: space-around; align-items: center; color: #fff;
+}
+.col { display: flex; flex-direction: column; }
+.row { display: flex; flex-direction: row; }
+.center { align-items: center; justify-content: center; }
+.iconBtn {
+  width: 14px; height: 14px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.iconBtn:active { transform: scale(0.96); }
+.typo61 { font: 500 12px/14.124px var(--font-gilroy); text-align: center; color: var(--color-252525); letter-spacing: 0; }
+.typo62 { font: 500 12px/14.124px var(--font-gilroy); color: var(--color-999999); }
+.typo65 { font: 500 12px/14.124px var(--font-gilroy); color: #ffffff; }
+.typo66 { font: 500 12px/14.124px var(--font-gilroy); color: #94ca9c; }
+.typo67 { font: 600 20px/24px var(--font-gilroy); color: var(--color-252525); }
+.typo68 { font: 600 20px/24px var(--font-gilroy); color: #202020; letter-spacing: 0.4px; }
+.typo69 { font: 600 12px/14.316px var(--font-gilroy); color: var(--color-999999); }
+.typo70 { font: 600 12px/14.316px var(--font-gilroy); color: #202020; letter-spacing: 0.24px; }
+.typo71 { font: 600 14px/16px var(--font-gilroy); color: var(--color-252525); }
+.typo72 { font: 500 12px/14.124px var(--font-gilroy); color: var(--color-42794a); }
+.typo52 { font: 600 14px/16px var(--font-gilroy); color: var(--color-252525); }
+.visuallyHidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+@media (max-width: 400px) {
+  .figmaCanvas { width: 100vw !important; border-radius: 0; }
+  .statusBar { width: 100vw !important; }
+  .bottomNav { width: 100vw !important; }
+}
